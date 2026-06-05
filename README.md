@@ -1,0 +1,2 @@
+# studyIA
+my first proyect 
