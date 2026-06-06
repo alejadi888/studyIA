@@ -1,4 +1,4 @@
-# RutaIA
+# studyIA
 
 Malla curricular interactiva para Ingeniería en Inteligencia Artificial UIS.
 
