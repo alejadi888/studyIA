@@ -1,10 +1,31 @@
 .materia {
-    width: 220px;
-    height: 140px;
-    border-radius: 16px;
+    width: 140px;
+    min-height: 20px;
+    height: auto;
+    border-radius: 12px;
     color: white;
-    padding: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 5px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nombre-materia {
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.info-materia {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem;
 }
 
 .aprobada {
@@ -17,4 +38,71 @@
 
 .bloqueada {
     background-color: #D1ACCE;
+}
+
+#malla {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 2px;
+}
+
+
+.semestre {
+    min-width: 162px;
+}
+
+
+.semestre h2 {
+    text-align: center;
+    margin-bottom: 1px;
+    font-size: 1.1rem;
+}
+
+.promedio-semestre {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.materia {
+    margin-bottom: 15px;
+}
+
+.materia h3 {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    overflow-wrap: break-word;
+}
+
+
+.info-materia {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 0.8rem;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+
+.encabezado h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+.promedio-general {
+    margin-left: 15px;
+    font-weight: 700;
+    font-size: 1.8rem;
 }
