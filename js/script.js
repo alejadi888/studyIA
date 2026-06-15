@@ -1,6 +1,46 @@
 const contenedor = document.getElementById("malla");
 
+cargarNotas();
+
 actualizarMalla();
+
+function guardarNotas(){
+
+    localStorage.setItem(
+        "notasStudyIA",
+        JSON.stringify(materias)
+    );
+
+}
+
+function cargarNotas(){
+
+    const datosGuardados = localStorage.getItem("notasStudyIA");
+
+
+    if(datosGuardados){
+
+        const materiasGuardadas = JSON.parse(datosGuardados);
+
+
+        materiasGuardadas.forEach(materiaGuardada => {
+
+            const materia = materias.find(
+                m => m.id === materiaGuardada.id
+            );
+
+
+            if(materia){
+
+                materia.notaFinal = materiaGuardada.notaFinal;
+
+            }
+
+        });
+
+    }
+
+}
 
 function calcularEstado(materia) {
 
@@ -56,6 +96,8 @@ function abrirModal(materia){
 
         materia.notaFinal = Number(input.value);
 
+        guardarNotas();
+
         modal.classList.add("oculto");
 
         actualizarMalla();
@@ -69,6 +111,8 @@ function abrirModal(materia){
     borrar.onclick = () => {
 
         materia.notaFinal = null;
+
+        guardarNotas();
 
         input.value = "";
 
