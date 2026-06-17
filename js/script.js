@@ -88,9 +88,12 @@ function abrirModal(materia){
 
     input.value = materia.notaFinal ?? "";
 
-
     modal.classList.remove("oculto");
 
+    const contenido = document.querySelector(".contenido-modal");
+    contenido.classList.remove("animar-modal");
+    void contenido.offsetWidth;
+    contenido.classList.add("animar-modal");
 
     boton.onclick = () => {
 
