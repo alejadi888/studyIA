@@ -1,3 +1,7 @@
+* {
+    font-family: "Nunito", sans-serif;
+}
+
 .materia {
     width: 140px;
     min-height: 20px;
@@ -5,8 +9,11 @@
     border-radius: 12px;
     color: white;
     padding: 5px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    
     box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 
     display: flex;
     flex-direction: column;
@@ -14,27 +21,37 @@
     align-items: center;
 }
 
-.nombre-materia {
+.materia h3 {
     text-align: center;
-    font-size: 0.7rem;
-    font-weight: bold;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
     margin: 0;
+    overflow-wrap: break-word;
 }
 
 .info-materia {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    font-size: 0.6rem;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.materia:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
 }
 
 .aprobada {
-    background-color: #E6748E;
+    background-color: #F3AAB5;
 }
 
 .desbloqueada {
     background-color: #C6D7E7;
 }
+
 
 .bloqueada {
     background-color: #D1ACCE;
@@ -48,12 +65,14 @@
     display: flex;
     gap: 5px;
     overflow-x: auto;
-    padding: 2px;
+    padding: 0px;
+    align-items: flex-start;
 }
 
 
 .semestre {
     min-width: 162px;
+    align-self: flex-start;
 }
 
 
@@ -61,6 +80,8 @@
     text-align: center;
     margin-bottom: 1px;
     font-size: 1.1rem;
+    font-weight: 600;
+    color:#E6748E;
 }
 
 .promedio-semestre {
@@ -69,26 +90,7 @@
     margin-bottom: 15px;
     font-size: 0.9rem;
     font-weight: 600;
-}
-
-.materia {
-    margin-bottom: 15px;
-}
-
-.materia h3 {
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 700;
-    margin: 0;
-    overflow-wrap: break-word;
-}
-
-
-.info-materia {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-    font-size: 0.8rem;
+    color:#E6748E;
 }
 
 .encabezado {
@@ -98,16 +100,15 @@
     padding: 10px;
 }
 
-
 .encabezado h1 {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 750;
+    color: #E6748E;
 }
-
 
 .promedio-general {
     margin-left: 15px;
-    font-weight: 700;
+    font-weight: 750;
     font-size: 1.8rem;
 }
 
@@ -121,6 +122,7 @@
     inset:0;
     justify-content:center;
     align-items:center;
+    animation: aparecerModal 0.25s ease;
 }
 
 
@@ -147,4 +149,126 @@
 
 .contenido-modal{
     position:relative;
+}
+
+
+.barra-progreso{
+    width: 100%;
+    height: 12px;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+#barra{
+    height: 100%;
+    width: 0%;
+    background-color: #E6748E;
+    transition: width 0.5s;
+}
+
+.contenedor-malla{
+    position: relative;
+}
+
+
+.progreso-container{
+    width: 300px;
+    margin-left: auto;
+    margin-right: 25px;
+    margin-top: -180px;
+    position: relative;
+    z-index: 2;
+    color: #E6748E;
+    font-weight: 500;
+}
+
+.animacion-aprobada {
+    animation: aprobar 0.6s ease;
+}
+
+
+@keyframes aprobar {
+
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+@keyframes aparecerModal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+.tarjeta-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+
+.materia:hover .tarjeta-inner {
+    transform: rotateY(180deg);
+}
+
+
+.frente,
+.atras {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+}
+
+
+.frente {
+    position: relative;
+    z-index: 2;
+}
+
+
+.atras {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 0px;
+    overflow-wrap: break-word;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+
+.atras h3,
+.atras p {
+    margin: 0px 0;
 }

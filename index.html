@@ -3,6 +3,11 @@
 <head>
     <title>StudyIA</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;750&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -12,7 +17,7 @@
     <h1>
         Ingeniería en Inteligencia Artificial
         <span>|</span>
-        <span class="promedio-general">
+        <span id="promedio-acumulado" class="promedio-general">
             -
         </span>
     </h1>
@@ -21,7 +26,24 @@
 
 
     <main>
-        <div id="malla"></div>
+        <div class="contenedor-malla">
+
+            <div id="malla"></div>
+
+            <div class="progreso-container">
+
+                <h3>Progreso de carrera</h3>
+                <p id="creditos-progreso">
+                    -
+                </p>
+
+                <div class="barra-progreso">
+                    <div id="barra"></div>
+                </div>
+
+            </div>
+
+        </div>
     </main>
 
 
