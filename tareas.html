@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<nav>
+
+<a href="index.html">
+Malla
+</a>
+
+
+<a href="tareas.html">
+Tareas
+</a>
+
+</nav>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyIA - Tareas</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;750&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<header class="encabezado">
+
+    <h1>
+        To-Do List
+    </h1>
+
+</header>
+
+
+<main>
+
+    <section class="zona-tareas">
+
+
+        <div class="crear-tarea">
+
+            <h2>
+                Nueva tarea
+            </h2>
+
+
+            <input 
+                id="tituloTarea"
+                type="text"
+                placeholder=" Nombre"
+            >
+
+
+            <input 
+                id="fechaTarea"
+                type="date"
+            >
+
+
+            <select id="prioridadTarea">
+
+                <option value="alta">
+                    Alta
+                </option>
+
+                <option value="media">
+                    Media
+                </option>
+
+                <option value="baja">
+                    Baja
+                </option>
+
+            </select>
+
+
+            <button id="agregarTarea">
+                Agregar
+            </button>
+
+
+        </div>
+
+
+
+        <div class="lista-tareas">
+
+            <h2>
+                Mis tareas
+            </h2>
+
+
+            <div id="listaTareas">
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <section class="calendario">
+
+        <h2>
+            Calendario
+        </h2>
+
+
+    </section>
+
+
+</main>
+
+<script src="js/tareas.js"></script>
+
+</body>
+
+</html>
