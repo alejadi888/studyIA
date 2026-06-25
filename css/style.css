@@ -439,3 +439,11 @@
 .tarea.baja{
     background-color:#C6D7E7;
 }
+
+.terminada {
+    opacity: 0.4;
+}
+
+.tarea {
+    transition: opacity 0.3s ease;
+}

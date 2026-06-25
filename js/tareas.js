@@ -57,6 +57,10 @@ function crearTarea(tarea){
         "tarea",
         tarea.prioridad
     );
+
+    if(tarea.completada){
+        elementoTarea.classList.add("terminada");
+    }
     
     elementoTarea.innerHTML = `
 
@@ -120,9 +124,41 @@ function crearTarea(tarea){
 function mostrarTareas(){
 
     listaTareas.innerHTML = "";
+    actualizarContador();
+    tareas.sort((a, b) => {
+        if(a.completada !== b.completada){
+
+            return a.completada - b.completada;
+        }
+        const prioridad = {
+            alta: 1,
+            media: 2,
+            baja: 3
+
+        };
+        return prioridad[a.prioridad] - prioridad[b.prioridad];
+    });
+
     tareas.forEach(tarea => {
         crearTarea(tarea);
     });
 }
 
 mostrarTareas();
+
+function actualizarContador(){
+
+    const pendientes = tareas.filter(
+        tarea => !tarea.completada
+    ).length;
+
+
+    const completadas = tareas.filter(
+        tarea => tarea.completada
+    ).length;
+
+
+    document.getElementById("contadorTareas").textContent =
+    ` ${pendientes} pendientes | ${completadas} completadas`;
+
+}
