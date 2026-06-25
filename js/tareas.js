@@ -1,8 +1,10 @@
 let tareas = JSON.parse(localStorage.getItem("tareasStudyIA")) || [];
 
 const botonAgregar = document.getElementById("agregarTarea");
+console.log(botonAgregar);
 
 const listaTareas = document.getElementById("listaTareas");
+console.log(listaTareas);
 
 
 botonAgregar.addEventListener("click", () => {
@@ -53,7 +55,7 @@ function crearTarea(tarea){
     const elementoTarea = document.createElement("div");
     elementoTarea.classList.add(
         "tarea",
-        datosTarea.prioridad
+        tarea.prioridad
     );
     
     elementoTarea.innerHTML = `
@@ -64,12 +66,12 @@ function crearTarea(tarea){
 
 
         <div class="fecha-tarea">
-            ${fecha || "Sin fecha"}
+            ${tarea.fecha || "Sin fecha"}
         </div>
 
 
         <div class="prioridad-tarea">
-            ${prioridad}
+            ${tarea.prioridad}
         </div>
 
 
@@ -95,7 +97,7 @@ function crearTarea(tarea){
     elementoTarea.querySelector(".completar")
     .addEventListener("click", () => {
 
-        datosTarea.completada = !datosTarea.completada;
+        tarea.completada = !tarea.completada;
             guardarTareas();
             mostrarTareas();
 
@@ -107,7 +109,7 @@ function crearTarea(tarea){
     .addEventListener("click", () => {
 
         tareas = tareas.filter(
-            t => t.id !== datosTarea.id
+            t => t.id !== tarea.id
         );
         guardarTareas();
         mostrarTareas();
