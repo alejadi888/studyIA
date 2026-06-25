@@ -1,3 +1,5 @@
+let tareas = JSON.parse(localStorage.getItem("tareasStudyIA")) || [];
+
 const botonAgregar = document.getElementById("agregarTarea");
 
 const listaTareas = document.getElementById("listaTareas");
@@ -21,75 +23,104 @@ botonAgregar.addEventListener("click", () => {
 
 
 
-    crearTarea(titulo, fecha, prioridad);
-
-
+    const nuevaTarea = {
+        id: Date.now(),
+        titulo: titulo,
+        fecha: fecha,
+        prioridad: prioridad,
+        completada: false
+    };
+    tareas.push(nuevaTarea);
+    guardarTareas();
+    mostrarTareas();
 
     document.getElementById("tituloTarea").value = "";
 
 });
 
 
+function guardarTareas(){
+
+    localStorage.setItem(
+        "tareasStudyIA",
+        JSON.stringify(tareas)
+    );
+
+}
 
 
+function crearTarea(tarea){
+    const elementoTarea = document.createElement("div");
+    elementoTarea.classList.add(
+        "tarea",
+        datosTarea.prioridad
+    );
+    
+    elementoTarea.innerHTML = `
 
-function crearTarea(titulo, fecha, prioridad){
-
-
-    const tarea = document.createElement("div");
-
-    tarea.classList.add("tarea");
-
-
-    tarea.innerHTML = `
-
-        <h3>
-            ${titulo}
-        </h3>
+        <div class="nombre-tarea">
+            ${tarea.titulo}
+        </div>
 
 
-        <p>
+        <div class="fecha-tarea">
             ${fecha || "Sin fecha"}
-        </p>
+        </div>
 
 
-        <p>
-            Prioridad: ${prioridad}
-        </p>
+        <div class="prioridad-tarea">
+            ${prioridad}
+        </div>
 
 
-        <button class="completar">
-            Completar
-        </button>
+        <div class="botones-tarea">
+
+            <button class="completar">
+                Completar
+            </button>
 
 
-        <button class="eliminar">
-            Eliminar
-        </button>
+            <button class="eliminar">
+                Eliminar
+            </button>
+
+        </div>
 
     `;
 
 
 
-    listaTareas.appendChild(tarea);
+    listaTareas.appendChild(elementoTarea);
 
-
-
-    tarea.querySelector(".completar")
+    elementoTarea.querySelector(".completar")
     .addEventListener("click", () => {
 
-        tarea.classList.toggle("terminada");
+        datosTarea.completada = !datosTarea.completada;
+            guardarTareas();
+            mostrarTareas();
 
     });
 
 
 
-    tarea.querySelector(".eliminar")
+    elementoTarea.querySelector(".eliminar")
     .addEventListener("click", () => {
 
-        tarea.remove();
-
+        tareas = tareas.filter(
+            t => t.id !== datosTarea.id
+        );
+        guardarTareas();
+        mostrarTareas();
     });
-
 
 }
+
+function mostrarTareas(){
+
+    listaTareas.innerHTML = "";
+    tareas.forEach(tarea => {
+        crearTarea(tarea);
+    });
+}
+
+mostrarTareas();

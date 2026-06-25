@@ -325,21 +325,23 @@
 
 .zona-tareas{
     display:grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap:40px;
+    grid-template-columns: 30% 60%;
+    gap:10%;
     margin:5px;
-    color: #E6748E;
+    color:#E6748E;
 
 }
 
 
 
-.crear-tarea,
-.lista-tareas{
+.crear-tarea{
+    align-items:center;
     display:flex;
     flex-direction:column;
-    align-items:center;
+}
 
+.lista-tareas{
+    align-items:stretch;
 }
 
 
@@ -363,13 +365,77 @@
     align-items:right;
     padding-left: 0px;
     border-radius: 20px;
+    width:100%;
+}
+
+#agregarTarea{
+    margin-top: 2px;
+    background: transparent;
+    border: transparent;
+    border-radius: 5px;
+    background-color: #EDECDA;
 }
 
 
+.tarea{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items:center;
+    width:100%;
+    padding:5px 12px;
+    margin-bottom:10px;
+    border-radius:15px;
+    box-sizing:border-box;
+    color:white;
+}
 
-.calendario{
-    margin:70px;
-    color: #E6748E;
-    min-height:250px;
+.nombre-tarea {
+    text-align:center;
+    font-weight:bold;
+}
 
+.fecha-tarea,
+.prioridad-tarea{
+    text-align:center;
+}
+
+.tarea h3{
+    margin:0;
+}
+
+
+.tarea p{
+    margin:0;
+}
+
+
+.botones-tarea{
+    grid-column:1 / 4;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:5px;
+    font-size:0.7rem;
+}
+
+.botones-tarea button{
+    background-color:#EDECDA;
+    border:none;
+    border-radius:10px;
+    padding:5px 15px;
+    cursor:pointer;
+}
+
+.tarea.alta{
+    background-color:#9DACC9;
+}
+
+
+.tarea.media{
+    background-color:#F3AAB5;
+}
+
+
+.tarea.baja{
+    background-color:#C6D7E7;
 }
