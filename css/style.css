@@ -447,3 +447,75 @@
 .tarea {
     transition: opacity 0.3s ease;
 }
+
+.contador-tareas{
+    font-size: 0.85rem;
+    font-weight: normal;
+}
+
+#modalEditar{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.contenido-modal-editar{
+
+    width:390px;
+    height:260px;
+    background:white;
+    border:2px solid #E6748E;
+    border-radius:30px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.titulo-editar{
+    color:#D1ACCE;
+    font-size:1.5rem;
+    font-weight:800;
+    text-align:center;
+}
+
+.input-editar{
+    width:220px;
+    height:30px;
+    border-radius:20px;
+    border:2px solid #D1ACCE;
+    background:transparent;
+    text-align:center;
+    font-size:1rem;
+    outline:none;
+}
+
+.select-editar{
+    width:220px;
+    height:35px;
+    border-radius:20px;
+    border:2px solid #D1ACCE;
+    background:white;
+    text-align:center;
+}
+
+.botones-modal-editar{
+    width:70%;
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+}
+
+.botones-modal-editar button{
+    border:none;
+    background:transparent;
+    color:#E6748E;
+    font-size:1.1rem;
+    font-weight:750;
+    cursor:pointer;
+}

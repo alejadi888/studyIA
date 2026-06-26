@@ -1,11 +1,29 @@
 let tareas = JSON.parse(localStorage.getItem("tareasStudyIA")) || [];
 
 const botonAgregar = document.getElementById("agregarTarea");
-console.log(botonAgregar);
-
 const listaTareas = document.getElementById("listaTareas");
-console.log(listaTareas);
 
+const modalEditar = document.getElementById("modalEditar");
+const editarTitulo = document.getElementById("editarTitulo");
+const editarFecha = document.getElementById("editarFecha");
+const editarPrioridad = document.getElementById("editarPrioridad");
+const guardarEdicion = document.getElementById("guardarEdicion");
+const cancelarEdicion = document.getElementById("cancelarEdicion");
+
+let tareaEditando = null;
+
+guardarEdicion.addEventListener("click",()=>{
+    tareaEditando.titulo = editarTitulo.value;
+    tareaEditando.fecha = editarFecha.value;
+    tareaEditando.prioridad = editarPrioridad.value;
+    guardarTareas();
+    mostrarTareas();
+    modalEditar.classList.add("oculto");
+});
+
+cancelarEdicion.addEventListener("click",()=>{
+    modalEditar.classList.add("oculto");
+});
 
 botonAgregar.addEventListener("click", () => {
 
@@ -86,6 +104,10 @@ function crearTarea(tarea){
             </button>
 
 
+            <button class="editar">
+                Editar
+            </button>
+
             <button class="eliminar">
                 Eliminar
             </button>
@@ -93,6 +115,17 @@ function crearTarea(tarea){
         </div>
 
     `;
+    elementoTarea.querySelector(".editar")
+    .addEventListener("click",()=>{
+
+        tareaEditando = tarea;
+
+        editarTitulo.value = tarea.titulo;
+        editarFecha.value = tarea.fecha;
+        editarPrioridad.value = tarea.prioridad;
+
+        modalEditar.classList.remove("oculto");
+    });
 
 
 
